@@ -22,8 +22,6 @@ class V8 < Formula
   depends_on "readline" => :optional
   depends_on "icu4c" => :recommended
 
-  needs :cxx11
-
   resource "depot_tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
     :revision => "850ce84cb68f6b428fa3a490f7b08481285fffb9"
