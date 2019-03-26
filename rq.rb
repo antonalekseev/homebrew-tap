@@ -14,7 +14,7 @@ class Rq < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "dflemstr/tools/v8"
+  depends_on "antonalekseev/tap/v8"
   depends_on "protobuf" => :recommended
 
   def install
