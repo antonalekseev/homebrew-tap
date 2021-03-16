@@ -4,7 +4,9 @@ class Mark < Formula
   homepage "https://github.com/kovetskiy/mark"
   url "https://github.com/kovetskiy/mark/archive/#{version}.tar.gz"
   sha256 "993c0496375568d32363184cab3f90c0850ead9bf5caf222496e1d8db7024308"
-  head "https://github.com/kovetskiy/mark.git"
+  head do
+    url "https://github.com/antonalekseev/mark.git", :branch => "local"
+  end
 
   depends_on "go" => :build
 
