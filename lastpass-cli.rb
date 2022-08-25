@@ -6,13 +6,6 @@ class LastpassCli < Formula
   revision 1
   head "https://github.com/lastpass/lastpass-cli.git"
 
-  bottle do
-    rebuild 1
-    sha256 "a24ff2d326dd4f445f492c788d7d8a28d3b3a853be9454c6418f340ed85505d8" => :mojave
-    sha256 "34fa4da7396fd076d9b0c02b1ea092701c3a2fe09447f818718eb66bb4c389d9" => :high_sierra
-    sha256 "508c481d28158c3e2f2f7aa69cc8b4048d56417a157d990208f2393297b60dc7" => :sierra
-  end
-
   depends_on "asciidoc" => :build
   depends_on "cmake" => :build
   depends_on "docbook-xsl" => :build
