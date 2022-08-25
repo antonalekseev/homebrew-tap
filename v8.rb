@@ -6,12 +6,6 @@ class V8 < Formula
   sha256 "574592cb40d509cb490ae0f4550c5bbde2442d423adaaa9fc20db9b3d3affab0"
   head "https://github.com/v8/v8.git"
 
-  bottle do
-    cellar :any
-    root_url "https://github.com/dflemstr/homebrew-tools/releases/download/v1/"
-    sha256 "01f63f99a5a83b53f1f776c007a10ad4d8e066bbf4a16c3ab3265d4ab9b6458b" => :el_capitan
-  end
-
   option "with-readline", "Use readline instead of libedit"
 
   # fix v8: unknown version :lion with Homebrew 2.0.6
@@ -38,7 +32,7 @@ class V8 < Formula
 
     mkdir buildpath/"v8"
     mv Dir.glob(buildpath/"{*,.*}").select {|p| !p.end_with?("/v8") && !p.end_with?(".") }, buildpath/"v8", :verbose => true
-    
+
     (buildpath/"depot_tools").install resource("depot_tools")
     ENV.prepend_create_path "PATH", (buildpath/"depot_tools")
 
