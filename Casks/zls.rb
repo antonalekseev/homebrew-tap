@@ -9,5 +9,5 @@ cask 'zls' do
   sha256 arm:  "9848514524f5e5d33997ac280b7d92388407209d4b8d4be3866dc3cf30ca6ca8",
          intel: "4b63854d6b76810abd2563706e7d768efc7111e44dd8b371d49198e627697a13"
 
-  binary "bin/zls", target: 'zls'
+  binary "zls", target: 'zls'
 end
