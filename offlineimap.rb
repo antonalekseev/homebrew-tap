@@ -8,22 +8,13 @@ class Offlineimap < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/OfflineIMAP/offlineimap3.git", branch: "master"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4eccc0d43e8b36dcd8dec895503cd05df802d67d7d1231d56fa6bd46bc254b8a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4eccc0d43e8b36dcd8dec895503cd05df802d67d7d1231d56fa6bd46bc254b8a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4eccc0d43e8b36dcd8dec895503cd05df802d67d7d1231d56fa6bd46bc254b8a"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c64a553101c61a8103658a1c6472d2201440441352d5221b46faf010f07543b1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c64a553101c61a8103658a1c6472d2201440441352d5221b46faf010f07543b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c64a553101c61a8103658a1c6472d2201440441352d5221b46faf010f07543b1"
-  end
-
   depends_on "certifi"
   depends_on "python@3.14"
 
   uses_from_macos "krb5"
 
   pypi_packages exclude_packages: "certifi",
-                extra_packages:   "keyring"
+                extra_packages:   ["keyring", "pysocks"]
 
   resource "distro" do
     url "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz"
@@ -67,6 +58,11 @@ class Offlineimap < Formula
     sha256 "392a9e1e362cbc106a2457d37cabf9b36e5e12efd4ebff1654630e76597df804"
   end
 
+  resource "pysocks" do
+    url "https://files.pythonhosted.org/packages/bd/11/293dd436aea955d45fc4e8a35b6ae7270f5b8e00b53cf6c024c83b657a11/PySocks-1.7.1.tar.gz"
+    sha256 "3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0"
+  end
+
   resource "rfc6555" do
     url "https://files.pythonhosted.org/packages/f6/4b/24f953c3682c134e4d0f83c7be5ede44c6c653f7d2c0b06ebb3b117f005a/rfc6555-0.1.0.tar.gz"
     sha256 "123905b8f68e2bec0c15f321998a262b27e2eaadea29a28bd270021ada411b67"
@@ -100,5 +96,6 @@ class Offlineimap < Formula
 
   test do
     system bin/"offlineimap", "--version"
+    system libexec/"bin/python", "-c", "import socks"
   end
 end
