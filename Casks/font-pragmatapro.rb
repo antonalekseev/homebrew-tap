@@ -24,11 +24,8 @@ cask "font-pragmatapro" do
     font "#{dir}/PragmataPro_Mono_#{s}_liga_#{v}.ttf"
   end
 
-  #+begin_src ruby
   zap trash: [
     "~/Library/Fonts/*[Pp]ragmata[Pp]ro*",
     "/Library/Fonts/*[Pp]ragmata[Pp]ro*",
   ]
-  #+end_src
-
 end
